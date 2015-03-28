@@ -1,5 +1,5 @@
 <?php
-  require_once(__PROJECTROOT__."/libkoalaweb/koalasignd.php");
+  require_once(dirname(__FILE__)."/koalasignd.php");
   class koalad {
     private $configured = false;
     private $socket = null;
