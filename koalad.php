@@ -21,8 +21,9 @@
           $request = koalasignd::getRequest($payload);
           if (json_decode($request) != false) {
             fputs($this->socket, $request."\n");
+            $time = time();
             $data = null;
-            while (!feof($this->socket))
+            while (!feof($this->socket) && (time() - $time) < 5)
               $data .= fgets($this->socket);
             $data = json_decode($data, true);
             if (is_array($data))
